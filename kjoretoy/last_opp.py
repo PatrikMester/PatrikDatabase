@@ -1,10 +1,8 @@
-from typing import Union
-
 from sqlalchemy import create_engine
 import polars as pl
-from .tabell import kjoretoy_tabell
+from kjoretoy.tabell import kjoretoy_tabell
 import logging
-from pathlib import Path
+
 
 def last_opp_kjoretoy(connstr: str, df:pl.DataFrame):
     logging.info(f"Starting database upload")

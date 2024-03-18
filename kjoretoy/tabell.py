@@ -1,6 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String, MetaData, Date, Boolean, text, literal
 
-
 def kjoretoy_tabell() -> Table:
     metadata_obj = MetaData()
     kjoretoy = Table(
