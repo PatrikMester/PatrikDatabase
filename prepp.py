@@ -13,8 +13,7 @@ def prepp_kjoretoy(inn_fil: Union[str, pathlib.Path]) -> pl.DataFrame:
     df = pl.read_parquet(inn_fil)
 
     # Casting av dato-kolonner.
-    # !!!! ERSTATT MED DIN KODE:
-    assert False, "Fjern denne asserten og putt inn din kode"
+    df = df.with_column("dato", pl.col("dato").cast(pl.Date64))
 
     # Denne er viktig fordi data er ikke unikt identifisert av kolonnene våre
     # Vi får trøbbel når vi skal gjøre group by senere - noen (forskjellige) biler har identiske data.
@@ -55,8 +54,8 @@ def prepp_kjoretoy(inn_fil: Union[str, pathlib.Path]) -> pl.DataFrame:
     )
 
     # Vi lager en egen elbil-kolonne
-    # !!!! ERSTATT MED DIN KODE:
-    assert False, "Fjern denne asserten og putt inn din kode"
+    df = df.with_column("elbil", pl.when(pl.col("drivstoff") == "Elektrisk", True).otherwise(False))
+
 
     # Vi vil også ha inn skriftlig beskrivelse av bilmerket
     merkekode = pl.read_csv(STATIC_DATA / "merkekode.csv", separator=";").rename(
