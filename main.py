@@ -1,4 +1,4 @@
-#Saksa fra tutorialen her: https://fastapi.tiangolo.com/tutorial/first-steps/
+ø#Saksa fra tutorialen her: https://fastapi.tiangolo.com/tutorial/first-steps/
 from fastapi import FastAPI
 from kjoretoy import kjoretoy_tabell
 from dotenv import load_dotenv
